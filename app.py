@@ -41,7 +41,7 @@ def spotify_app():
     # url = "https://api.spotify.com/v1/" + "browse/new-releases/"
     parameters = {
         "country" : "US",
-        "limit" : 5,
+        "limit" : 20,
         "offset" : 0
     }
     
@@ -53,6 +53,7 @@ def spotify_app():
     artists_name = []
     for artists in return_data['tracks'][0]['artists']:
         artists_name.append(artists['name'])
+    num_artists = len(artists_name)
     image_link = return_data['tracks'][0]['album']['images'][1]['url']
     song_preview = return_data['tracks'][0]['preview_url']
     song_link = return_data['tracks'][0]['external_urls']['spotify']
@@ -61,7 +62,8 @@ def spotify_app():
     return render_template(
         "index.html",
         songName=song_name,
-        artistName=artists_name,
+        artistNames=artists_name,
+        length=num_artists,
         imageLink=image_link,
         songPreview=song_preview,
         songLink=song_link)
