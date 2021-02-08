@@ -2,8 +2,32 @@
 <html>
     <head>
         <!-- head definitions go here -->
+        <link rel="stylesheet" href={{url_for('static', filename='style.css')}} type="text/css" />
+        <base target="_blank">
     </head>
     <body>
-        <!-- the content goes here -->
+        <!--<h1>This is a header</h1>-->
+        <!--Song Title-->
+        <div class="overArching">
+        <h2>{{songName}}</h2>
+        <!--Artist Name-->
+        {%for i in range(0, length)%}
+            {%if i == 0%}
+                <h4>{{artistNames[i]}}</h4>
+            {%else%}
+                <h4>{{artistNames[i]}}</h4>
+            {%endif%}
+        {%endfor%}
+        <!--Album Art-->
+        <img src="{{imageLink}}" alt="Album art for song {{songName}}"></img>
+        <!--Preview-->
+        <figure>
+            <audio controls src={{songPreview}}>
+                Your browser does not support the <code>audio</code> element.
+            </audio>
+        </figure>
+        <!--Song Link-->
+        <a href="{{songName}}">Full Song</a>
+        </div>
     </body>
 </html>
