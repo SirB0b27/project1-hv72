@@ -9,6 +9,7 @@
 # Setup
 1. Create `.env` file in your project directory
 2. Add you client ID and client secrets in this format:
+
     `Client_ID="{YOUR CLIENT ID}"`
     `Client_Secret="{YOUR CLIENT SECRET}"`
 
