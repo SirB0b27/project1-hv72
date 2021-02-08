@@ -1,5 +1,5 @@
 # Spotify Artists Top Track Preview Application 
-## by Hemanth Velan
+### by Hemanth Velan
 
 # Install Requirements:
 1. `pip install python-dotenv`
