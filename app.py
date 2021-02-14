@@ -58,7 +58,26 @@ def spotify_app():
     song_preview = return_data['tracks'][0]['preview_url']
     song_link = return_data['tracks'][0]['external_urls']['spotify']
     
-    # render html file
+    # print(song_preview)
+    if(song_preview == None):
+        # print(return_data)
+        song_preview = "None"
+        # print(song_name)
+        
+        
+    #Genius Set up
+    genius_base = "https://api.genius.com/"
+    genius_token = os.getenv("Genius_Token")
+    head = {
+        "Authorization" : "Bearer {}".format(genius_token)
+    }
+    search_link = genius_base + "search"
+    returned_data = requests.get(search_link, data={'q':song_name}, headers=head).json()
+    lyric_link = "https://genius.com" + returned_data["response"]["hits"][0]["result"]["path"]
+    # print(lyric_link)
+        
+        
+    # render html file:
     return render_template(
         "index.html",
         songName=song_name,
@@ -66,7 +85,8 @@ def spotify_app():
         length=num_artists,
         imageLink=image_link,
         songPreview=song_preview,
-        songLink=song_link)
+        songLink=song_link,
+        lyricLink = lyric_link)
 
 # run the flask app
 app.run(
