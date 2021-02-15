@@ -62,7 +62,7 @@ def spotify_app():
     for songs in return_data['tracks']:
         song_list.append(songs['name'])
         song_link_list.append(songs['external_urls']['spotify'])
-    print(song_link_list)
+    # print(song_link_list)
     num_songs = len(song_list)
     song_name = return_data['tracks'][random_track-1]['name']
     artists_name = []
