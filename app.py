@@ -33,30 +33,38 @@ def spotify_app():
         "Authorization": "Bearer {}".format(access_token)
     }
     
-    spotify_artists = ['3OKg7YbOIatODzkRIbLJR4', '5ZbRDyTYX4HhXveONcZQn2', '7p1fL0cAuCPDMG6oBswFhM', '6s22t5Y3prQHyaHWUN1R1C', '3z97WMRi731dCvKklIf2X6']
-    random_number = random.randint(1, len(spotify_artists))
+    spotify_artists = ['3OKg7YbOIatODzkRIbLJR4', 
+                        '5ZbRDyTYX4HhXveONcZQn2',
+                        '7p1fL0cAuCPDMG6oBswFhM',
+                        '6s22t5Y3prQHyaHWUN1R1C',
+                        '3z97WMRi731dCvKklIf2X6']
+                        
+    random_artist = random.randint(1, len(spotify_artists))
     
-    url = 'https://api.spotify.com/v1/artists/{id}/top-tracks'.format(id = spotify_artists[random_number-1])
+    url = 'https://api.spotify.com/v1/artists/{id}/top-tracks'.format(id = spotify_artists[random_artist-1])
     # print(url)
     # url = "https://api.spotify.com/v1/" + "browse/new-releases/"
     parameters = {
         "country" : "US",
-        "limit" : 20,
+        "limit" : 10,
         "offset" : 0
     }
     
     spotify_response = requests.get(url=url, headers = headers, params = parameters)
     return_data = spotify_response.json()
     
+    # get random track
+    random_track = random.randint(1, len(return_data['tracks']))
+    
     # information to display on html
-    song_name = return_data['tracks'][0]['name']
+    song_name = return_data['tracks'][random_track-1]['name']
     artists_name = []
-    for artists in return_data['tracks'][0]['artists']:
+    for artists in return_data['tracks'][random_track-1]['artists']:
         artists_name.append(artists['name'])
     num_artists = len(artists_name)
-    image_link = return_data['tracks'][0]['album']['images'][1]['url']
-    song_preview = return_data['tracks'][0]['preview_url']
-    song_link = return_data['tracks'][0]['external_urls']['spotify']
+    image_link = return_data['tracks'][random_track-1]['album']['images'][1]['url']
+    song_preview = return_data['tracks'][random_track-1]['preview_url']
+    song_link = return_data['tracks'][random_track-1]['external_urls']['spotify']
     
     # print(song_preview)
     if(song_preview == None):
