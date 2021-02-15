@@ -46,7 +46,7 @@
             
             <ol class="list">
                 {%for i in range(0, numSongs)%}
-                    <p>{{i+1}}. {{songList[i]}}</p>
+                    <p>{{i+1}}. <a class="list_hyperlink" href={{songLinkList[i]}}>{{songList[i]}}</a></p>
                 {%endfor%}
             </ol>
             </br>
