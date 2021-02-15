@@ -57,11 +57,17 @@ def spotify_app():
     random_track = random.randint(1, len(return_data['tracks']))
     
     # information to display on html
+    song_list = []
+    song_link_list = []
+    for songs in return_data['tracks']:
+        song_list.append(songs['name'])
+        song_link_list.append(songs['external_urls']['spotify'])
+    print(song_link_list)
+    num_songs = len(song_list)
     song_name = return_data['tracks'][random_track-1]['name']
     artists_name = []
     for artists in return_data['tracks'][random_track-1]['artists']:
         artists_name.append(artists['name'])
-    num_artists = len(artists_name)
     image_link = return_data['tracks'][random_track-1]['album']['images'][1]['url']
     song_preview = return_data['tracks'][random_track-1]['preview_url']
     song_link = return_data['tracks'][random_track-1]['external_urls']['spotify']
@@ -90,11 +96,13 @@ def spotify_app():
         "index.html",
         songName=song_name,
         artistNames=artists_name,
-        length=num_artists,
         imageLink=image_link,
         songPreview=song_preview,
         songLink=song_link,
-        lyricLink = lyric_link)
+        lyricLink=lyric_link,
+        songList=song_list,
+        numSongs=num_songs,
+        songLinkList=song_link_list)
 
 # run the flask app
 app.run(

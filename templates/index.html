@@ -8,36 +8,48 @@
     
     <body>
         <!--Song Title-->
-        <div class="overArching">
-        <h2>{{songName}}</h2>
+        <div class="preview">
+            </br>
+            <h2>{{songName}}</h2>
         
+            <!--Artist Name-->
+            <!--String Concat Source: https://stackoverflow.com/questions/2061439/string-concatenation-in-jinja-->
+            <h4>{{artistNames | join (", ")}}</h4>
         
-        <!--Artist Name-->
-        <!--String Concat Source: https://stackoverflow.com/questions/2061439/string-concatenation-in-jinja-->
-        <h4>{{artistNames | join (", ")}}</h4>
+            <!--Album Art-->
+            <img src="{{imageLink}}" alt="Album art for song {{songName}}"></img>
+            
+            <!--Preview-->
+            {% if songPreview == "None" %}
+                <p>No Preview Available</p>
+            {%else%}
+                <figure>
+                    <audio controls src={{songPreview}}>
+                        Your browser does not support the audio element.
+                    </audio>
+                </figure>
+            {%endif%}
         
-        
-        <!--Album Art-->
-        <img src="{{imageLink}}" alt="Album art for song {{songName}}"></img>
-        <!--Preview-->
-        {% if songPreview == "None" %}
-            <p>No Preview Available</p>
-        {%else%}
-            <figure>
-                <audio controls src={{songPreview}}>
-                    Your browser does not support the audio element.
-                </audio>
-            </figure>
-        {%endif%}
-        
-        
-        <!--Song and Lyric Link-->
-        <div>
-            <a href="{{songLink}}">Full Song</a>
-            &emsp;
-            <a href="{{lyricLink}}">Lyric Link</a>
+            <!--Song and Lyric hyperlink-->
+            <div>
+                <a class="hyperlink" href="{{songLink}}">Full Song</a>
+                &emsp;
+                <a class="hyperlink" href="{{lyricLink}}">Lyric Link</a>
+            </div>
+            </br>
         </div>
         
+        <div class="top_tracks">
+            </br>
+            
+            <h2>Top {{numSongs}} Tracks from {{artistNames[0]}}</h2>
+            
+            <ol class="list">
+                {%for i in range(0, numSongs)%}
+                    <p>{{i+1}}. {{songList[i]}}</p>
+                {%endfor%}
+            </ol>
+            </br>
         </div>
     </body>
 </html>

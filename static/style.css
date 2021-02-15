@@ -1,3 +1,32 @@
-.overArching{
+body{
     text-align: center;
+}
+
+.preview{
+    background: red;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.hyperlink{
+    color: black;
+}
+
+.top_tracks{
+    background: black;
+    color: red;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.list{
+    font-size: 20px;
+}
+
+.list_hyperlink{
+    color: red;
 }
