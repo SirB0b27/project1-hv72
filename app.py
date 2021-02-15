@@ -33,11 +33,27 @@ def spotify_app():
         "Authorization": "Bearer {}".format(access_token)
     }
     
-    spotify_artists = ['3OKg7YbOIatODzkRIbLJR4', 
-                        '5ZbRDyTYX4HhXveONcZQn2',
-                        '7p1fL0cAuCPDMG6oBswFhM',
-                        '6s22t5Y3prQHyaHWUN1R1C',
-                        '3z97WMRi731dCvKklIf2X6']
+    spotify_artists = ['3OKg7YbOIatODzkRIbLJR4',  # TheFatRat
+                        '5ZbRDyTYX4HhXveONcZQn2', # Mystery Skills
+                        '7p1fL0cAuCPDMG6oBswFhM', # Maretu
+                        '6s22t5Y3prQHyaHWUN1R1C', # AJR
+                        '3z97WMRi731dCvKklIf2X6', # NEFFEX
+                        '3WrFJ7ztbogyGnTHbHJFl2', # The Beatles
+                        '1dfeR4HaWDbWqFHLkxsg1d', # Queen
+                        '1Xyo4u8uXC1ZmMpatF05PJ', # The Weeknd
+                        '4gzpq5DPGxSnKTe4SA8HAU', # Coldplay
+                        '0blbVefuxOGltDBa00dspv', # LiSA
+                        '1XTqQwcJw9D1bo0cuO8Oq2', # Anna Tsychiya
+                        '3iNL7rw7fpmysjZvhB8vi7', # MC Virgins
+                        '04gDigrS5kc9YWfZHwBETP', # Maroon 5
+                        '7vk5e3vY1uw9plTHJAMwjN', # Alan Walker
+                        '6NgYKD0TKGjwtRFqTyyqKF', # Monsune
+                        '0z7Yuv7DuDQ5SaVn4VSlLt', # Lisa Hannigan
+                        '6udveWUgX4vu75FF0DTrXV', # Taeyang
+                        '3Nrfpe0tUJi4K4DXYWgMUX', # BTS
+                        '4XDi67ZENZcbfKnvMnTYsI', # Jay Park
+                        '3HqSLMAZ3g3d5poNaI7GOU', # IU
+                        ]
                         
     random_artist = random.randint(1, len(spotify_artists))
     
