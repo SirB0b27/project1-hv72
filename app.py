@@ -50,7 +50,7 @@ def spotify_app():
         song_preview = "None"
         
     # get the link to the lyrics using Genius API
-    lyric_link = get_lyric_link(song_name)
+    # lyric_link = get_lyric_link(song_name)
         
     # render html file:
     return render_template(
@@ -60,7 +60,7 @@ def spotify_app():
         imageLink=image_link,
         songPreview=song_preview,
         songLink=song_link,
-        lyricLink=lyric_link,
+        # lyricLink=lyric_link,
         songList=song_list,
         numSongs=num_songs,
         songLinkList=song_link_list)
